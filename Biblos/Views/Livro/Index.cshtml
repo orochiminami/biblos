@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Biblos.Models.Livro>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Adicionar">Adicionar Livro</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Código
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Autor
+            </th>
+            <th>
+                Ano
+            </th>
+            <th>
+                Editora
+            </th>
+            <th>
+                Assunto
+            </th>
+            <th>
+                ISBN
+            </th>
+            <th>
+                Disponibilidade
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ano)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Editora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assunto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Isbn)
+            </td>
+            <td>
+                @Html.DisponivelFor(modelItem => item.Disponivel)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
